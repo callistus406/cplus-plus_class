@@ -20,7 +20,7 @@ cout<<"initial version: "<<arr[0] <<" " <<arr[1]<<endl;
 
 swap(arr[0],arr[1]);
 
-cout<<"swaped version: "<<arr[0] <<" " <<arr[1]<<endl;
+cout<<"swapped version: "<<arr[0] <<" " <<arr[1]<<endl;
 
 
 
