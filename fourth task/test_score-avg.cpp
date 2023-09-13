@@ -2,83 +2,54 @@
 #include <iostream>
 using namespace std;
 
-double sumFn(int scores[], int length)
+int getNumOfTest()
 {
-    // int len = sizeof(scores) / sizeof(int);
-    double sum = 0;
-    // int len = size(scores);
-    for (int i = 0; i < length; i++)
-    {
-        cout << scores[i] << endl;
-        sum += scores[i];
-    }
-    cout << "fdfd      " << sum << "          rerere        " << length << endl;
-    return sum;
-}
-double avgFn(double sum, int length)
-{
-
-    return sum / length;
-}
-
-double getInput(int &count)
-{
-    double input;
-    cout << "Enter #" << count + 1 << " score: ";
-    cin >> input;
-    return input;
-}
-int main()
-{
-
     int numScore;
-    int input;
-    float sum = 0;
-    float result;
     cout << "Enter Number of test scores" << endl;
 
     cin >> numScore;
 
-    int count = 0;
-    while (count < numScore)
+    return numScore;
+}
+int getTestScores(int counter)
+{
+    int testScore;
+    cout << "Enter #" << counter + 1 << " score: ";
+    cin >> testScore;
+    return testScore;
+}
+
+double getSum(int scores[], int numOfScores)
+{
+    double sum = 0;
+    for (int i = 0; i < numOfScores; i++)
     {
-        input = getInput(count);
-        int scores[numScore];
-
-        if (input > 0 && input <= 100)
-        {
-
-            result = avgFn(sumFn(scores, numScore), numScore);
-            count++;
-        }
-        else
-        {
-
-            if (input)
-            {
-                // scores = input;
-                // scores = input;
-                // sum += scores;
-                result = avgFn(sumFn(scores, numScore), numScore);
-
-                cout << "Try again: " << sum << endl;
-            }
-            else
-            {
-                cout << "Invalid input" << endl;
-                break;
-            }
-        }
+        sum += scores[i];
     }
-    // if (sizeof(scores) / sizeof(int) == 0)
-    // {
-    //     avg = 0;
-    // }
-    // else
-    // {
-    //     avg = sum / numScore;
-    // }
+    return sum;
+}
+double getAvg(double sum, int numOfScores)
+{
+    return sum / numOfScores;
+}
+int main()
+{
 
-    cout << "The average score of all test is " << result << " marks" << endl;
+    int testScore;
+    double sum = 0;
+    double average;
+    int counter = 0;
+    const int numOfTest = getNumOfTest();
+    int scores[numOfTest];
+    while (counter < numOfTest)
+    {
+        testScore = getTestScores(counter);
+        scores[counter] = testScore;
+        counter++;
+    }
+    sum = getSum(scores, numOfTest);
+    average = getAvg(sum, numOfTest);
+    cout << "your average is: " << average << "\n";
+
     return 0;
 }
