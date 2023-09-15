@@ -40,16 +40,44 @@ int main()
     double average;
     int counter = 0;
     const int numOfTest = getNumOfTest();
+
     int scores[numOfTest];
-    while (counter < numOfTest)
+    if (numOfTest)
     {
-        testScore = getTestScores(counter);
-        scores[counter] = testScore;
-        counter++;
+
+        while (counter < numOfTest)
+        {
+
+            testScore = getTestScores(counter);
+            if (testScore > 0 && testScore <= 100)
+            {
+
+                scores[counter] = testScore;
+                counter++;
+            }
+            else
+            {
+                if (testScore)
+                {
+                    // scores[counter] = testScore;
+                    sum = getSum(scores, counter);
+                    cout << "Try again: " << sum << endl;
+                }
+                else
+                {
+                    cout << "Invalid input" << endl;
+                    break;
+                }
+            }
+        }
+        sum = getSum(scores, numOfTest);
+        average = getAvg(sum, numOfTest);
+        cout << "your average is: " << average << "\n";
     }
-    sum = getSum(scores, numOfTest);
-    average = getAvg(sum, numOfTest);
-    cout << "your average is: " << average << "\n";
+    else
+    {
+        cout << "Invalid input" << endl;
+    }
 
     return 0;
 }
