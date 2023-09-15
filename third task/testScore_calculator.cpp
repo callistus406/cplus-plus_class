@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-	
+
 	int numScore;
 	int temp;
 	float sum = 0;
@@ -14,34 +14,40 @@ int main()
 	cin >> numScore;
 	int scores = 0;
 	int count = 0;
-	while (count < numScore) {
+	while (count < numScore)
+	{
 		cout << "Enter #" << count + 1 << " score: ";
 		cin >> temp;
-		if (temp > 0 && temp <= 100) {
+		if (temp > 0 && temp <= 100)
+		{
 
 			scores = temp;
 			sum += scores;
 			count++;
+		}
+		else
+		{
 
-		} else {
-
-			if (temp) {
+			if (temp)
+			{
 				scores = temp;
 				scores = temp;
 				sum += scores;
-			cout << "Try again: " << sum << endl;
-
-			} else {
+				cout << "Try again: " << sum << endl;
+			}
+			else
+			{
 				cout << "Invalid input" << endl;
 				break;
 			}
 		}
-
-
 	}
-	if (sum == 0) {
+	if (sum == 0)
+	{
 		avg = 0;
-	} else {
+	}
+	else
+	{
 		avg = sum / numScore;
 	}
 
