@@ -85,7 +85,7 @@ void calc(char response)
 
             for (int i = 0; i < num2; i++)
             {
-                _exp = _exp * num1;
+                _exp = _exp * (num1);
             }
             output(_exp);
             break;
